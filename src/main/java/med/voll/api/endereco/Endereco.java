@@ -26,6 +26,6 @@ public class Endereco {
         this.numero = endereco.numero();
         this.complemento = endereco.complemento();
         this.cidade = endereco.cidade();
-        this.cidade = endereco.uf();
+        this.uf = endereco.uf();
     }
 }
