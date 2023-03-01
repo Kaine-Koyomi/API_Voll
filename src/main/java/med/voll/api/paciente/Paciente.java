@@ -24,6 +24,7 @@ public class Paciente {
 
     @Embedded
     private Endereco endereco;
+    private Boolean active;
 
     public Paciente(DadosCadastroPaciente json){
         this.nome = json.nome();
@@ -31,6 +32,7 @@ public class Paciente {
         this.cpf = json.cpf();
         this.telefone = json.telefone();
         this.endereco = new Endereco(json.endereco());
+        this.active = true;
     }
 
     public void atualizarPaciente(DadosAtualizacaoPaciente json){
@@ -43,5 +45,9 @@ public class Paciente {
         if(json.endereco() != null){
             this.endereco.atualizarEndereco(json.endereco());
         }
+    }
+
+    public void excluir(){
+        this.active = false;
     }
 }
