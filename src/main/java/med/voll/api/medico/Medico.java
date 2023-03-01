@@ -30,6 +30,8 @@ public class Medico {
     @Embedded
     private Endereco endereco;
 
+    private Boolean active;
+
     public Medico(DadosCadastroMedico json) {
         this.nome = json.nome();
         this.email = json.email();
@@ -37,6 +39,7 @@ public class Medico {
         this.crm = json.crm();
         this.especialidade = json.especialidade();
         this.endereco = new Endereco(json.endereco());
+        this.active = true;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico json){
@@ -49,5 +52,9 @@ public class Medico {
         if(json.endereco() != null){
             this.endereco.atualizarEndereco(json.endereco());
         }
+    }
+
+    public void excluir(){
+        this.active = false;
     }
 }
